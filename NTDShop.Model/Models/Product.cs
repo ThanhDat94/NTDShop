@@ -8,8 +8,7 @@ using System.Text;
 
 namespace NTDShop.Model.Models
 {
-    class Product
-    {
+  
         [Table("Products")]
         public class Product : Auditable
         {
@@ -59,4 +58,4 @@ namespace NTDShop.Model.Models
             public virtual IEnumerable<ProductTag> ProductTags { set; get; }
         }
     }
-}
+

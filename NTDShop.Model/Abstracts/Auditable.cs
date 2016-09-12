@@ -26,5 +26,8 @@ namespace NTDShop.Model.Abstracts
         public string MetaDescription { set; get; }
 
         public bool Status { set; get; }
+
+
+       
     }
 }
