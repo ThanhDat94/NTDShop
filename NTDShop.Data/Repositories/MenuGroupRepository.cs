@@ -3,8 +3,7 @@ using NTDShop.Model.Models;
 
 namespace NTDShop.Data.Repositories
 {
-    internal class MenuGroupRepository
-    {
+   
         public interface IMenuGroupRepository : IRepository<MenuGroup>
         {
         }
@@ -16,5 +15,5 @@ namespace NTDShop.Data.Repositories
             {
             }
         }
-    }
+    
 }
