@@ -13,6 +13,7 @@ namespace NTDShop.Service
 
         void Delete(PostCategory postCategory);
 
+
         void Delete(int ID);
 
         IEnumerable<PostCategory> GetAll();

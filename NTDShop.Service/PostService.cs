@@ -2,7 +2,7 @@
 using NTDShop.Data.Repositories;
 using NTDShop.Model.Models;
 using System.Collections.Generic;
-using System.Linq;
+
 namespace NTDShop.Service
 {
     public interface IPostService
@@ -62,7 +62,7 @@ namespace NTDShop.Service
 
         public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pagesize, int totalrow)
         {
-            return _postRepository.GetAllByTag(tag, page, pagesize,out totalrow);
+            return _postRepository.GetAllByTag(tag, page, pagesize, out totalrow);
         }
 
         public Post GetByID(int id)
