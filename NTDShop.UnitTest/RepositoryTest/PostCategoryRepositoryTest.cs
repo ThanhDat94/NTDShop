@@ -21,6 +21,7 @@ namespace NTDShop.UnitTest.RepositoryTest
             dbFactory = new DbFactory();
             objRepository = new PostCategoryRepository(dbFactory);
             unitOfWork = new UnitOfWork(dbFactory);
+
         }
 
         public void PostCategory_Repository_GetAll()
