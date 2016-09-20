@@ -7,7 +7,7 @@ namespace NTDShop.Service
 {
     public interface IPostCategoryService
     {
-        void Add(PostCategory postCategory);
+        PostCategory Add(PostCategory postCategory);
 
         void UpDate(PostCategory postCategory);
 
@@ -34,9 +34,9 @@ namespace NTDShop.Service
             this._unitOfWork = unitOfWork;
         }
 
-        public void Add(PostCategory postCategory)
+        public PostCategory Add(PostCategory postCategory)
         {
-            _postCategoryRepository.Add(postCategory);
+           return _postCategoryRepository.Add(postCategory);
         }
 
         public void UpDate(PostCategory postCategory)

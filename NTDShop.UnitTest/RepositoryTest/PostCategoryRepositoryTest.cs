@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NTDShop.Data.Infrastructure;
 using NTDShop.Data.Repositories;
+using NTDShop.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace NTDShop.UnitTest.RepositoryTest
         IDbFactory dbFactory;
         IPostCategoryRepository objRepository;
         IUnitOfWork unitOfWork;
+
+
         [TestInitialize]
         public void Initalize()
         {
@@ -23,11 +26,25 @@ namespace NTDShop.UnitTest.RepositoryTest
             unitOfWork = new UnitOfWork(dbFactory);
 
         }
-
+        [TestMethod]
         public void PostCategory_Repository_GetAll()
         {
             var list = objRepository.GetAll().ToList();
+            Assert.AreEqual(3, list.Count);
+        }
+        [TestMethod]
+        public void PostCategory_Repository_Create()
+        {
+            PostCategory category = new PostCategory();
+            category.Name = "test category";
+            category.Alias = "test category";
+            category.Status = true;
+            
+            var result = objRepository.Add(category);
+            unitOfWork.Commit();
 
+            Assert.IsNotNull(result);
+            Assert.AreEqual(3, result.ID);
         }
     }
 }

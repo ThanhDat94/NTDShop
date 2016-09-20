@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryTest\PostCategoryRepositoryTest.cs" />
+    <Compile Include="ServiceTest\PostCategoryServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NTDShop.Common\NTDShop.Common.csproj">
@@ -96,9 +97,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ServiceTest\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
