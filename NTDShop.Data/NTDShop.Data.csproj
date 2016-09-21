@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201609130300367_InitialDb.Designer.cs">
       <DependentUpon>201609130300367_InitialDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609210908074_AddError.cs" />
+    <Compile Include="Migrations\201609210908074_AddError.Designer.cs">
+      <DependentUpon>201609210908074_AddError.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NTDShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +99,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609130300367_InitialDb.resx">
       <DependentUpon>201609130300367_InitialDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609210908074_AddError.resx">
+      <DependentUpon>201609210908074_AddError.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

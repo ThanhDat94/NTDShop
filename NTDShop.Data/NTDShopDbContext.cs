@@ -34,6 +34,7 @@ namespace NTDShop.Data
 
         public DbSet<Tag> Tags { set; get; }
 
+        public DbSet<Error> Errors { get; set; }
 
 
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
