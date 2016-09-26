@@ -1,4 +1,5 @@
-﻿using NTDShop.Model.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using NTDShop.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NTDShop.Data
 {
-    public class NTDShopDbContext:DbContext
+    public class NTDShopDbContext: IdentityDbContext<ApplicationUser>
     {
         public NTDShopDbContext()
             : base("NTDShopConnection")
@@ -35,7 +36,10 @@ namespace NTDShop.Data
         public DbSet<Tag> Tags { set; get; }
 
         public DbSet<Error> Errors { get; set; }
-
+        public static NTDShopDbContext Create()
+        {
+            return new NTDShopDbContext();
+        }
 
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
