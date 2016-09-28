@@ -12,6 +12,12 @@ namespace NTDShop.Web.Mappings
             Mapper.CreateMap<PostCategory, PostCategoryViewModel>();
             Mapper.CreateMap<Tag, TagViewModel>();
             Mapper.CreateMap<PostTag, PostTagViewModel>();
+            Mapper.CreateMap<ProductCategory, ProductCategoryViewModel>();
+            Mapper.CreateMap<PostCategory, PostTagViewModel>();
+            Mapper.CreateMap<Product, ProductViewModel>();
+            Mapper.CreateMap<Tag, TagViewModel>();
+            Mapper.CreateMap<ProductTag, ProductTagViewModel>();
+
         }
     }
 }

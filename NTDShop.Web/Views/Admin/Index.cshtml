@@ -222,25 +222,20 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a ui-sref="products"><i class="fa fa-circle-o"></i>Products</a></li>
-                            <li><a ui-sref="products_add"><i class="fa fa-circle-o"></i>Add Products</a></li>
-                           
-                        </ul>
+                        
                     </li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-files-o"></i>
-                            <span>Layout Options</span>
+                            <span>Sản Phẩm</span>
                             <span class="pull-right-container">
                                 <span class="label label-primary pull-right">4</span>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                            <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                            <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                            <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                            <li><a ui-sref="product_categories"><i class="fa fa-circle-o"></i>Danh Mục Sản Phẩm</a></li>
+                            <li><a ui-sref="products"><i class="fa fa-circle-o"></i>Sản Phẩm</a></li>
+
                         </ul>
                     </li>
                     <li>
@@ -617,6 +612,9 @@
     <script src="~/Assets/admin/libs/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="~/app/app.js"></script>
     <script src="~/app/shared/modules/ntdshop.common.js"></script>
+    <script src="~/app/shared/services/apiService.js"></script>
+    <script src="~/app/compoments/product_categories/productCategories.module.js"></script>
+    <script src="~/app/compoments/product_categories/productCategoryListController.js"></script>
     <script src="~/app/compoments/products/products.moudle.js"></script>
     <script src="~/app/compoments/home/homeController.js"></script>
     <script src="~/app/compoments/products/productListController.js"></script>

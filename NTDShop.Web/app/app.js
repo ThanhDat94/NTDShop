@@ -2,7 +2,11 @@
 
 
 (function(){
-    angular.module('ntdshop', ['ntdshop.products','ntdshop.common']).config(config);
+    angular.module('ntdshop',
+        ['ntdshop.products',
+         'ntdshop.product_categories',
+         'ntdshop.common'])
+         .config(config);
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function config($stateProvider, $urlRouterProvider) {

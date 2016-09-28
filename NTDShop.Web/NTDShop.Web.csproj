@@ -186,6 +186,7 @@
   <ItemGroup>
     <Compile Include="api\AccountController.cs" />
     <Compile Include="api\PostCategoryController.cs" />
+    <Compile Include="api\ProductCategoryController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -204,6 +205,9 @@
     <Compile Include="Models\PostCategoryViewModel.cs" />
     <Compile Include="Models\PostTagViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
+    <Compile Include="Models\ProductCategoryViewModel.cs" />
+    <Compile Include="Models\ProductTagViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -218,7 +222,11 @@
     <Content Include="app\compoments\products\productEditController.js" />
     <Content Include="app\compoments\products\productListController.js" />
     <Content Include="app\compoments\products\productListView.html" />
+    <Content Include="app\compoments\product_categories\productCategories.module.js" />
+    <Content Include="app\compoments\product_categories\productCategoryListController.js" />
+    <Content Include="app\compoments\product_categories\productCategoryListView.html" />
     <Content Include="app\shared\modules\ntdshop.common.js" />
+    <Content Include="app\shared\services\apiService.js" />
     <Content Include="Assets\admin\css\AdminLTE.css" />
     <Content Include="Assets\admin\css\AdminLTE.min.css" />
     <Content Include="Assets\admin\css\skins\skin-black-light.css" />
@@ -588,12 +596,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\compoments\orders\" />
-    <Folder Include="app\compoments\product_categories\" />
     <Folder Include="app\compoments\roles\" />
     <Folder Include="app\compoments\users\" />
     <Folder Include="app\shared\directive\" />
     <Folder Include="app\shared\footer\" />
-    <Folder Include="app\shared\services\" />
     <Folder Include="Assets\admin\js\pages\" />
     <Folder Include="Assets\client\" />
     <Folder Include="Scripts\plugins\" />
