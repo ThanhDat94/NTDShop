@@ -23,13 +23,13 @@ namespace NTDShop.Web.api
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request, int page, int pageSize = 20)
+        public HttpResponseMessage Get(HttpRequestMessage request, string keyWord, int page, int pageSize = 20)
         {
             return CreateHttpReponse(request, () =>
             {
                 int totalRow = 0;
 
-                var model = _productCategoryService.GetAll();
+                var model = _productCategoryService.GetAll(keyWord);
 
                 totalRow = model.Count();
 
@@ -40,7 +40,7 @@ namespace NTDShop.Web.api
                 {
                     Items = reponseData,
                     Page = page,
-                    ToTalCount = totalRow,
+                    TotalCount = totalRow,
                     TotalPages = (int)Math.Ceiling((decimal)(totalRow / pageSize))
                 };
 

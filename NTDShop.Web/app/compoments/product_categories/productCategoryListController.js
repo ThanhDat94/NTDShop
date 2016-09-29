@@ -8,15 +8,22 @@
 
         $scope.productCategories = [];
         $scope.page = 0;
+        $scope.totalCount = 0;
         $scope.pagesCount = 0;
         $scope.getProductCategories = getProductCategories;
+        $scope.keyWord = '';
+        $scope.search = search;
+        function search() {
+            getProductCategories();
+        }
 
         function getProductCategories(page) {
             page = page || 0;
             var config = {
                 params: {
+                    keyWord:$scope.keyWord,
                     page: page,
-                    pageSize: 2
+                    pageSize: 20
                 }
             }
             apiService.get('/api/productCategory/getall', config, function (result) {

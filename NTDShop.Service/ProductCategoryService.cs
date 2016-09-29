@@ -22,6 +22,7 @@ namespace NTDShop.Service
 
         IEnumerable<ProductCategory> GetAll();
 
+        IEnumerable<ProductCategory> GetAll(string keyWord);
         ProductCategory GetByID(int id);
 
         void SavChanges();
@@ -73,6 +74,12 @@ namespace NTDShop.Service
             _unitOfWork.Commit();
         }
 
-       
+        public IEnumerable<ProductCategory> GetAll(string keyWord)
+        {
+            if (!string.IsNullOrEmpty(keyWord))
+                return _ProductCategoryRepository.GetMulti(x => x.Name.Contains(keyWord) || x.MetaDescription.Contains(keyWord));
+            else
+                return _ProductCategoryRepository.GetAll();
+        }
     }
 }
