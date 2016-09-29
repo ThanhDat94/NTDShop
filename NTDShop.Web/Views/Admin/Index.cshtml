@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!--nofication-style-->
+    <link href="~/Assets/admin/libs/toastr/toastr.css" rel="stylesheet" />
     <!-- Theme style -->
     <link rel="stylesheet" href="/Assets/admin/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -222,7 +224,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
-                        
+
                     </li>
                     <li class="treeview">
                         <a href="#">
@@ -389,7 +391,7 @@
         <!-- =============================================== -->
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-           <div ui-view></div>
+            <div ui-view></div>
         </div>
         <!-- /.content-wrapper -->
 
@@ -610,11 +612,19 @@
     <!-- Begin embed AgularJS -->
     <script src="~/Assets/admin/libs/angular/angular.js"></script>
     <script src="~/Assets/admin/libs/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!--Notification JS-->
+    <script src="~/Assets/admin/libs/toastr/toastr.js"></script>
+
+    <!--app angular JS-->
     <script src="~/app/app.js"></script>
     <script src="~/app/shared/modules/ntdshop.common.js"></script>
     <script src="~/app/shared/directives/pagerDirectives.js"></script>
     <script src="~/app/shared/filters/statusFilter.js"></script>
+
     <script src="~/app/shared/services/apiService.js"></script>
+    <script src="~/app/shared/services/notificationService.js"></script>
+    
     <script src="~/app/compoments/product_categories/productCategories.module.js"></script>
     <script src="~/app/compoments/product_categories/productCategoryListController.js"></script>
     <script src="~/app/compoments/products/products.moudle.js"></script>
