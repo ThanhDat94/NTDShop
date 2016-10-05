@@ -224,6 +224,8 @@
     <Content Include="app\compoments\products\productListController.js" />
     <Content Include="app\compoments\products\productListView.html" />
     <Content Include="app\compoments\product_categories\productCategories.module.js" />
+    <Content Include="app\compoments\product_categories\productCategoryAddController.js" />
+    <Content Include="app\compoments\product_categories\productCategoryAddView.html" />
     <Content Include="app\compoments\product_categories\productCategoryListController.js" />
     <Content Include="app\compoments\product_categories\productCategoryListView.html" />
     <Content Include="app\shared\directives\pagerDirectives.js" />

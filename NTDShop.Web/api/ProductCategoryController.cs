@@ -2,6 +2,7 @@
 using NTDShop.Model.Models;
 using NTDShop.Service;
 using NTDShop.Web.Infrastructure.Core;
+using NTDShop.Web.Infrastructure.Extensions;
 using NTDShop.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace NTDShop.Web.api
         }
 
         [Route("getall")]
+        [HttpGet]
         public HttpResponseMessage Get(HttpRequestMessage request, string keyWord, int page, int pageSize = 20)
         {
             return CreateHttpReponse(request, () =>
@@ -46,6 +48,29 @@ namespace NTDShop.Web.api
 
                 var reponse = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return reponse;
+            });
+        }
+        [Route("Create")]
+        [HttpPost]
+        public HttpResponseMessage Create(HttpRequestMessage request,ProductCategoryViewModel ProductCategoryVm)
+        {
+            return CreateHttpReponse(request, () => {
+                HttpResponseMessage response = null;
+                if(! ModelState.IsValid)
+                {
+                  response=  request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    ProductCategory productCategory = new ProductCategory();
+                    productCategory.UpdateProductCategory(ProductCategoryVm);
+                    _productCategoryService.Add(productCategory);
+                    _productCategoryService.SavChanges();
+                    var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(productCategory);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
+                    
+                }
+                return response;
             });
         }
     }
