@@ -30,9 +30,6 @@
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không tìm thấy kết quả');
                 }
-                else {
-                    notificationService.displaySuccess('Đã tìm thấy ' + result.data.TotalCount +  ' Bản Ghi');
-                }
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;

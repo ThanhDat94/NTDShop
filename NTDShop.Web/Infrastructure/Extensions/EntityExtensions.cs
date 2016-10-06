@@ -35,7 +35,7 @@ namespace NTDShop.Web.Infrastructure.Extensions
             ProductCategory.DisplayOrder = ProductCategoryVm.DisplayOrder;
             ProductCategory.Image = ProductCategoryVm.Image;
             ProductCategory.HomeFlag = ProductCategoryVm.HomeFlag;
-
+            ProductCategory.CreatedDate = ProductCategoryVm.CreatedDate;
             ProductCategory.CreatedBy = ProductCategoryVm.CreatedBy;
             ProductCategory.UpdatedBy = ProductCategoryVm.UpdatedBy;
             ProductCategory.UpdatedDate = ProductCategoryVm.UpdatedDate;

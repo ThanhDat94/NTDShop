@@ -50,6 +50,20 @@ namespace NTDShop.Web.api
                 return reponse;
             });
         }
+        [Route("getallParents")]
+        [HttpGet]
+        public HttpResponseMessage Get(HttpRequestMessage request)
+        {
+            return CreateHttpReponse(request, () =>
+            {
+                var model = _productCategoryService.GetAll();
+
+                var reponseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
+               
+                var reponse = request.CreateResponse(HttpStatusCode.OK, reponseData);
+                return reponse;
+            });
+        }
         [Route("Create")]
         [HttpPost]
         public HttpResponseMessage Create(HttpRequestMessage request,ProductCategoryViewModel ProductCategoryVm)
