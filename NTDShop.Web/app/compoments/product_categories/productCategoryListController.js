@@ -30,6 +30,7 @@
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không tìm thấy kết quả');
                 }
+  
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
