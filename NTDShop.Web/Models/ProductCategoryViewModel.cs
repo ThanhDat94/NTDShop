@@ -8,10 +8,10 @@ namespace NTDShop.Web.Models
     {
         public int ID { set; get; }
 
-        [Required]
+        [Required(ErrorMessage = "phải nhập vào tên danh mục")]
         public string Name { set; get; }
 
-        [Required]
+        [Required(ErrorMessage ="phải nhập vào tiêu đề SEO")]
         public string Alias { set; get; }
 
         public string Description { set; get; }
@@ -39,7 +39,7 @@ namespace NTDShop.Web.Models
        
         public string MetaDescription { set; get; }
 
-        [Required]
+        [Required(ErrorMessage = "phải nhập vào status")]
         public bool Status { set; get; }
     }
 }

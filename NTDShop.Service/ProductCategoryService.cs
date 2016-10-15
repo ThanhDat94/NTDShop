@@ -18,7 +18,7 @@ namespace NTDShop.Service
         void Delete(ProductCategory ProductCategory);
 
 
-        void Delete(int ID);
+        ProductCategory Delete(int ID);
 
         IEnumerable<ProductCategory> GetAll();
 
@@ -54,9 +54,10 @@ namespace NTDShop.Service
             _ProductCategoryRepository.Delete(ProductCategory);
         }
 
-        public void Delete(int ID)
+        public ProductCategory Delete(int ID)
         {
             _ProductCategoryRepository.Delete(ID);
+            return _ProductCategoryRepository.GetSingleById(ID);
         }
 
         public IEnumerable<ProductCategory> GetAll()

@@ -1,5 +1,5 @@
 ﻿
 
 (function () {
-    angular.module('ntdshop.common',['ui.router'])
+    angular.module('ntdshop.common',['ui.router','ngBootbox'])
 })();

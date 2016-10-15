@@ -62,7 +62,7 @@ namespace NTDShop.Web.api
                 var model = _productCategoryService.GetAll();
 
                 var reponseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
-               
+
                 var reponse = request.CreateResponse(HttpStatusCode.OK, reponseData);
                 return reponse;
             });
@@ -70,13 +70,13 @@ namespace NTDShop.Web.api
 
         [Route("getByID/{id:int}")]
         [HttpGet]
-        public HttpResponseMessage GetByID(HttpRequestMessage request,int id)
+        public HttpResponseMessage GetByID(HttpRequestMessage request, int id)
         {
             return CreateHttpReponse(request, () =>
             {
                 var model = _productCategoryService.GetByID(id);
 
-                var reponseData = Mapper.Map<ProductCategory,ProductCategoryViewModel>(model);
+                var reponseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(model);
 
                 var reponse = request.CreateResponse(HttpStatusCode.OK, reponseData);
                 return reponse;
@@ -85,13 +85,14 @@ namespace NTDShop.Web.api
 
         [Route("Create")]
         [HttpPost]
-        public HttpResponseMessage Create(HttpRequestMessage request,ProductCategoryViewModel ProductCategoryVm)
+        public HttpResponseMessage Create(HttpRequestMessage request, ProductCategoryViewModel ProductCategoryVm)
         {
-            return CreateHttpReponse(request, () => {
+            return CreateHttpReponse(request, () =>
+            {
                 HttpResponseMessage response = null;
-                if(! ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
-                  response=  request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
                 else
                 {
@@ -102,7 +103,7 @@ namespace NTDShop.Web.api
                     _productCategoryService.SavChanges();
                     var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(productCategory);
                     response = request.CreateResponse(HttpStatusCode.Created, responseData);
-                    
+
                 }
                 return response;
             });
@@ -112,7 +113,8 @@ namespace NTDShop.Web.api
         [HttpPut]
         public HttpResponseMessage Update(HttpRequestMessage request, ProductCategoryViewModel ProductCategoryVm)
         {
-            return CreateHttpReponse(request, () => {
+            return CreateHttpReponse(request, () =>
+            {
                 HttpResponseMessage response = null;
                 if (!ModelState.IsValid)
                 {
@@ -129,6 +131,22 @@ namespace NTDShop.Web.api
                     response = request.CreateResponse(HttpStatusCode.Created, responseData);
 
                 }
+                return response;
+            });
+        }
+        [Route("delete")]
+        [HttpDelete]
+        public HttpResponseMessage delete(HttpRequestMessage request, int id)
+        {
+            return CreateHttpReponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                ProductCategory oldProductCategory = _productCategoryService.Delete(id);
+                _productCategoryService.SavChanges();
+                var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(oldProductCategory);
+                response = request.CreateResponse(HttpStatusCode.OK, responseData);
+
                 return response;
             });
         }
