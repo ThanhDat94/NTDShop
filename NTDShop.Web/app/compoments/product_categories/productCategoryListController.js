@@ -2,9 +2,9 @@
 (function (app) {
     app.controller('productCategoryListController', productCategoryListController);
 
-    productCategoryListController.$inject = ['$scope', 'apiService', 'notificationService','$ngBootbox'];
+    productCategoryListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter'];
 
-    function productCategoryListController($scope, apiService, notificationService,$ngBootbox) {
+    function productCategoryListController($scope, apiService, notificationService, $ngBootbox, $filter) {
 
         $scope.productCategories = [];
         $scope.page = 0;
@@ -14,13 +14,61 @@
         $scope.keyWord = '';
         $scope.search = search;
 
+        $scope.deleteMultiple = deleteMultiple;
+        $scope.selectedAll = selectedAll;
+
         $scope.deleteProductCategory = deleteProductCategory;
+
+        $scope.$watch('productCategories', function (n, o) {
+            var checked = $filter('filter')(n, { checked: true });
+            if (checked.length) {
+                $scope.selected = checked;
+                $('#btnDelete').removeAttr('disabled');
+            } else {
+                $('#btnDelete').attr('disabled', 'disabled');
+            }
+        }, true);
+
+        $scope.isAll = false;
+
+        function selectedAll() {
+            if ($scope.isAll === false) {
+                angular.forEach($scope.productCategories, function (item) {
+                    item.checked = true;
+                })
+                $scope.isAll = true;
+            } else {
+                angular.forEach($scope.productCategories, function (item) {
+                    item.checked = false;
+                })
+                $scope.isAll = false;
+            }
+        }
+
+        function deleteMultiple() {
+            var listId = [];
+            $.each($scope.selected, function (i, item) {
+                listId.push(item.ID);
+            })
+            var config = {
+                params: {
+                    listIDs: JSON.stringify(listId)
+                }
+            }
+            apiService.del('/api/productCategory/deleteMulti', config, function (res) {
+                notificationService.displaySuccess('Xóa thành công'+res.data+'bản ghi');
+                search();
+            }, function (error) {
+                notificationService.displayError('Xóa thất bại!');
+            })
+        }
+
         function deleteProductCategory(id) {
             $ngBootbox.confirm('Bạn có chắc chắn muốn xóa không ?').then(
                 function () {
-                    var config={
+                    var config = {
                         params: {
-                            id:id
+                            id: id
                         }
                     }
                     apiService.del('/api/productCategory/delete', config, function () {
@@ -40,7 +88,7 @@
             page = page || 0;
             var config = {
                 params: {
-                    keyWord:$scope.keyWord,
+                    keyWord: $scope.keyWord,
                     page: page,
                     pageSize: 20
                 }
@@ -49,7 +97,7 @@
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không tìm thấy kết quả');
                 }
-  
+
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;

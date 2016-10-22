@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 
 namespace NTDShop.Web.api
 {
@@ -146,6 +147,25 @@ namespace NTDShop.Web.api
                 _productCategoryService.SavChanges();
                 var responseData = Mapper.Map<ProductCategory, ProductCategoryViewModel>(oldProductCategory);
                 response = request.CreateResponse(HttpStatusCode.OK, responseData);
+
+                return response;
+            });
+        }
+        [Route("deleteMulti")]
+        [HttpDelete]
+        public HttpResponseMessage deleteMulti(HttpRequestMessage request, string listIDs)
+        {
+            return CreateHttpReponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                var ids = new JavaScriptSerializer().Deserialize<List<int>>(listIDs);
+                foreach (var id in ids)
+                {
+                    ProductCategory oldProductCategory = _productCategoryService.Delete(id);
+
+                }
+                _productCategoryService.SavChanges();
+                response = request.CreateResponse(HttpStatusCode.OK,ids.Count);
 
                 return response;
             });
