@@ -44,6 +44,34 @@ namespace NTDShop.Web.Infrastructure.Extensions
             ProductCategory.CreatedBy = ProductCategoryVm.CreatedBy;
             ProductCategory.Status = ProductCategoryVm.Status;
         }
+        public static void UpdateProduct(this Product Product, ProductViewModel ProductVm)
+        {
+            Product.ID = ProductVm.ID;
+            Product.Name = ProductVm.Name;
+            Product.Description = ProductVm.Description;
+            Product.Alias = ProductVm.Alias;
+            Product.CategoryID = ProductVm.CategoryID;
+            Product.MoreImages = ProductVm.MoreImages;
+            Product.Image = ProductVm.Image;
+            Product.HomeFlag = ProductVm.HomeFlag;
+            Product.Quantity = ProductVm.Quantity;
+            Product.Tags = ProductVm.Tags;
+            Product.ViewCount = ProductVm.ViewCount;
+            Product.HotFlag = ProductVm.HotFlag;
+            Product.Content = ProductVm.Content;
+            Product.Warranty = ProductVm.Warranty;
+            Product.PromotionPrice = ProductVm.PromotionPrice;
+            Product.Price = ProductVm.Price;
+            Product.Status = ProductVm.Status;
+            Product.CreatedBy = ProductVm.CreatedBy;
+            Product.UpdatedBy = ProductVm.UpdatedBy;
+            Product.CreatedDate = ProductVm.CreatedDate;
+            Product.UpdatedDate = ProductVm.UpdatedDate;
+            Product.MetaKeyword = ProductVm.MetaKeyword;
+            Product.MetaDescription = ProductVm.MetaDescription;
+
+        }
+
 
         public static void UpdatePost(this Post post, PostViewModel postVm)
         {

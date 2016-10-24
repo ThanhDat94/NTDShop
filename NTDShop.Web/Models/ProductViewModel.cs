@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NTDShop.Web.Models
 {
@@ -32,6 +33,15 @@ namespace NTDShop.Web.Models
         public string Tags { set; get; }
 
         public int Quantity { set; get; }
+
+        public bool Status { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public string UpdatedBy { get; set; }
+        public string MetaKeyword { get; set; }
+        public string MetaDescription { get; set; }
+
 
         public virtual ProductCategoryViewModel ProductCategory { set; get; }
 
